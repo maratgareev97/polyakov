@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Таблица</h1>
+<form action="/" method="get">
+    <table border="1">
+        <tr>
+            <td></td>
+            <td>id</td>
+            <td>name</td>
+            <td>phone</td>
+        </tr>
+
+        {% for string in allTable%}
+        <tr>
+            <td><input type="radio" name="delete" value="{{string.id}}"></td>
+            <td>{{string.id}}</td>
+            <td>{{string.name}}</td>
+            <td>{{string.phone}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="submit">
+</form>
+</body>
+</html>
