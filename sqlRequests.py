@@ -15,7 +15,7 @@ def ins():
     connection = connect.con()
 
     cursor = connection.cursor()
-    cursor.execute("insert into table2 (name, phone, description) VALUES (1,2,3)")
+    cursor.execute("""insert into table2 (name, phone, description) VALUES (%s,2,3)""",(getUserId()[0].get('name')))
     connection.commit()
     cursor.close()
     connection.close()
@@ -43,6 +43,19 @@ def deleteById(id):
     cursor.close()
     connection.close()
 
+def getUserId():
+    connection = connect.con()
+
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM table2 where id=1")
+    result = cursor.fetchall()  # в виде строки
+    cursor.close()
+    connection.close()
+    # for i in result:
+    #     print(i)
+    return result
+
 # cret()
 # ins()
 # allSelect()
+print(getUserId()[0].get('name'))

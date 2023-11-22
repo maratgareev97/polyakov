@@ -1,6 +1,6 @@
 import subprocess
 
-a = subprocess.run('python3 /home/marat/PycharmProjects/polyakov/subproc/sub.py',
+a = subprocess.run('python3 subproc/sub.py',
                    stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                    encoding='utf-8',
                    shell=True)
