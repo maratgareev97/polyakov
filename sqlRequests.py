@@ -21,6 +21,8 @@ def ins():
     connection.close()
 
 
+
+
 def allSelect():
     connection = connect.con()
 
@@ -43,11 +45,11 @@ def deleteById(id):
     cursor.close()
     connection.close()
 
-def getUserId():
+def getUserId(id):
     connection = connect.con()
 
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM table2 where id=1")
+    cursor.execute("""SELECT * FROM table2 where id=%s""",(id))
     result = cursor.fetchall()  # в виде строки
     cursor.close()
     connection.close()
@@ -58,4 +60,5 @@ def getUserId():
 # cret()
 # ins()
 # allSelect()
-print(getUserId()[0].get('name'))
+print(getUserId(2)[0].get('phone'))
+# print(getUserId()[0].get('name'))
