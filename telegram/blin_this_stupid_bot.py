@@ -6,14 +6,24 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
-   await message.reply("Привет!\nЯ Эхо-бот от Skillbox!\nОтправь мне любое сообщение, а я тебе обязательно отвечу.")
+   await message.reply("start")
+
+@dp.message_handler(commands=['test'])
+async def send_welcome(message: types.Message):
+   await bot.send_message(1292677678,"test")
 
 
 @dp.message_handler()
 async def echo(message: types.Message):
+   print(message)
+   id = message.from_id
+   name = message.from_user.first_name
+   text = "Привет "
+   if message.text!="привет":
+      await bot.send_message(id, "Иди на фик")
+   if message.text=="привет":
+      await bot.send_message(id, text+name)
 
-   s=int(message.text)**2
-   await message.answer(s)
 
 
 
